@@ -1,17 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>productos</title>
+    <script>
+        // Función para obtener productos desde la API
+        fetch('http://127.0.0.1:5000/productos')
+            .then(response => response.json())  // Parsear la respuesta JSON
+            .then(productos => {
+                const productosDiv = document.getElementById('productos');  // Elemento donde se mostrarán los productos
+                productos.forEach(producto => {
+                    // Crear un párrafo para cada producto
+                    const componenteP = document.createElement("p");
+                    componenteP.textContent = `${producto.nombre} - $${producto.precio}`;
+
+                    // Agregar el párrafo al div de productos
+                    productosDiv.appendChild(componenteP);
+                });
+            })
+            .catch(error => console.error('Error al obtener los productos:', error));
+    </script>
 </head>
+
 <body>
     <h1>Lista de Productos</h1>
-    <ul>
-        {% for producto in productos %}
-            <li>{{ producto.nombre }} - ${{ producto.precio }}</li>
-        {% endfor %}
-    </ul>
-    <a href="{{ url_for('home') }}">Volver al inicio</a>
+    <br>
+    <h2>Lista de Productos</h2>
+    <div id="productos"></div>
+   
+    <a href="{{ url_for('home') }}">
+        <button>Volver al inicio</button>
+    </a>
 </body>
+
 </html>
