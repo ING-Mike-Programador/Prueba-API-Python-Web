@@ -5,7 +5,7 @@ fetch("http://127.0.0.1:5000/productos", {
 .then(data => {
     const productosDiv = document.getElementById("productos");
     productosDiv.innerHTML = ""; // Limpiar contenido previo
-
+    console.log("Json:\n"+data.productos);
     data.productos.forEach(producto => {
         const p = document.createElement("p");
         p.textContent = `${producto.nombre} - $${producto.precio}`;
