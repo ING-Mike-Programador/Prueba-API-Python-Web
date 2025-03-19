@@ -1,13 +1,16 @@
- fetch('http://127.0.0.1:5000/productos')
- .then(response => response.json())  // Parsear la respuesta JSON
- .then(productos => {
-    const $productosDiv = document.getElementById('productos');
-     productos.forEach(producto => {
-         // Crear un elemento para cada producto y agregarlo a la página
-         const $componenteP = document.createElement("p"),
-         $label = document.createElement("label");
-         $label.textContent = `${producto.nombre} - $${producto.precio}`;
-         $productosDiv.appendChild($label);
-     });
- })
- .catch(error => console.error('Error al obtener los productos:', error));
+fetch("http://127.0.0.1:5000/productos", {
+    headers: { "Accept": "application/json" } // Asegura que reciba JSON
+})
+.then(response => response.json())
+.then(data => {
+    const productosDiv = document.getElementById("productos");
+    productosDiv.innerHTML = ""; // Limpiar contenido previo
+
+    data.productos.forEach(producto => {
+        const p = document.createElement("p");
+        p.textContent = `${producto.nombre} - $${producto.precio}`;
+        console.log(`${producto.nombre} - $${producto.precio}`);
+        productosDiv.appendChild(p);
+    });
+})
+.catch(error => console.error("Error al obtener los productos:", error));
