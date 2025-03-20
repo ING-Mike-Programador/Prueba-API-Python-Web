@@ -1,5 +1,5 @@
 :root {
-    --fondoBody: rgb(17, 204, 142);
+    --fondoBody: hsl(160, 85%, 43%);
     --fondoDivPrincipal: rgb(42, 47, 88);
     --fondoGrid: rgb(33, 39, 88);
     --colorBorde: rgb(15, 161, 112);
@@ -44,7 +44,7 @@ body {
     font-size: 20px;
     margin: 1%;
     background-color: transparent;
-    border-color: rgb(4, 61, 116);
+    border-color: #043d74;
     border-width: 3px;
     border-radius: 5px;
     color: aliceblue;
@@ -52,6 +52,6 @@ body {
 
 p {
     font-size: 18px;
-    color: rgb(2, 19, 13);
+    color: #02130d;
     padding-left: 1%;
 }
