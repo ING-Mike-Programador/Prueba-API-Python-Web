@@ -4,21 +4,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../Static/Estilo.css">
     <title>productos</title>
-   
+
 </head>
 
 <body>
-    <h1>Lista de Productos</h1>
-    <br>
-    <h2>Lista de Productos</h2>
-    <div id="productos">
+    <div class="Contenido Borde">
+        <h1>Lista de Productos</h1>
+        <div id="productos">
+          <p>  {"nombre": "Laptop", "precio": 15000},
+            {"nombre": "Mouse", "precio": 500},
+            {"nombre": "Teclado", "precio": 1200},
+            {"nombre": "Mouse", "precio": 500},
+            {"nombre": "Teclado", "precio": 1200},
+            {"nombre": "Mouse", "precio": 500},
+            {"nombre": "Teclado", "precio": 1200}
+        </p>
+        </div>
+        <script src="{{ url_for('static', filename='script.js') }}"></script>
+
+        <a href="{{ url_for('home') }}">
+            <button class="Boton">Volver al inicio</button>
+        </a>
     </div>
-    <script src="{{ url_for('static', filename='script.js') }}"></script>
-    
-    <a href="{{ url_for('home') }}">
-        <button>Volver al inicio</button>
-    </a>
 </body>
 
 </html>

@@ -1,0 +1,57 @@
+:root {
+    --fondoBody: rgb(17, 204, 142);
+    --fondoDivPrincipal: rgb(42, 47, 88);
+    --fondoGrid: rgb(33, 39, 88);
+    --colorBorde: rgb(15, 161, 112);
+    --colorSecundario: rgb(7, 194, 153);
+    --fondoBotonComponentes: linear-gradient(rgb(189, 16, 16), rgb(110, 21, 21));
+    --colorBordeBotonComponenetes: rgb(110, 57, 21);
+    --colorBordeGrid: rgb(25, 29, 65);
+    --resplandorBorde: rgb(91, 243, 160);
+    --letraParrafo: 20px;
+    --letraInput: 15px;
+    --alturaGrid: 500px;
+    --columnas: repeat(5, 1fr);
+    --filas: repeat(5, 1fr);
+}
+
+body {
+    background: var(--fondoBody);
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.Borde {
+    border-width: 5px;
+    border-color: var(--colorBorde);
+    border-style: solid;
+    border-radius: 55px;
+    box-shadow: 0px 1px 10px 3px var(--resplandorBorde);
+}
+
+.Contenido {
+    margin: 10px;
+    margin-left: 5%;
+    margin-right: 5%;
+    background-color: var(--colorSecundario);
+    width: auto;
+    height: auto;
+    padding: 2%;
+}
+
+.Boton {
+    width: auto;
+    height: auto;
+    font-size: 20px;
+    margin: 1%;
+    background-color: transparent;
+    border-color: rgb(4, 61, 116);
+    border-width: 3px;
+    border-radius: 5px;
+    color: aliceblue;
+}
+
+p {
+    font-size: 18px;
+    color: rgb(2, 19, 13);
+    padding-left: 1%;
+}
