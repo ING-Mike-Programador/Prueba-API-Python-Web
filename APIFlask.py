@@ -1,15 +1,8 @@
 from flask import Flask, render_template, jsonify, request
 
 app = Flask(__name__)
-
-# Página principal
-@app.route("/")
-def home():
-    return render_template("index.html")
-
-@app.route("/productos",methods=["GET"])
-def productos():
-    lista_productos = [
+# Variables 
+lista_productos = [
         {"nombre": "Laptop", "precio": 15000},
         {"nombre": "Mouse", "precio": 500},
         {"nombre": "Teclado", "precio": 1200},
@@ -18,7 +11,13 @@ def productos():
         {"nombre": "Mouse", "precio": 500},
         {"nombre": "Teclado", "precio": 1200}
     ]
+# Página principal
+@app.route("/")
+def home():
+    return render_template("index.html")
 
+@app.route("/productos",methods=["GET"])
+def productos():
     # Si la petición es JSON (desde la app de escritorio o AJAX en la web)
     if request.headers.get("Accept") == "application/json" or request.headers.get("X-Requested-With") == "XMLHttpRequest":
         return jsonify({"productos": lista_productos})

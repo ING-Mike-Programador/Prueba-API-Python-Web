@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../Static/Estilo.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='Estilo.css') }}">
     <title>productos</title>
 
 </head>
@@ -13,14 +13,6 @@
     <div class="Contenido Borde">
         <h1>Lista de Productos</h1>
         <div id="productos">
-          <p>  {"nombre": "Laptop", "precio": 15000},
-            {"nombre": "Mouse", "precio": 500},
-            {"nombre": "Teclado", "precio": 1200},
-            {"nombre": "Mouse", "precio": 500},
-            {"nombre": "Teclado", "precio": 1200},
-            {"nombre": "Mouse", "precio": 500},
-            {"nombre": "Teclado", "precio": 1200}
-        </p>
         </div>
         <script src="{{ url_for('static', filename='script.js') }}"></script>
 

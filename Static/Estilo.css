@@ -51,7 +51,8 @@ body {
 }
 
 p {
-    font-size: 18px;
+    font-size: 16px;
     color: #02130d;
     padding-left: 1%;
+    margin: 2px;
 }
