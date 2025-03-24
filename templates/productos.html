@@ -12,8 +12,14 @@
 <body>
     <div class="Contenido Borde">
         <h1>Lista de Productos</h1>
-        <div id="productos">
+        <div class="contenido2">
+        <div class="grid">
+            <p class="EncabezadoProductos grid-item">Nombre</p>
+            <p class="EncabezadoPrecios grid-item">Precio</p>
+            <div id="IDproductos" class="Productos grid-item"></div>
+            <div id="IDprecios" class="Precios grid-item"></div>
         </div>
+    </div>
         <script src="{{ url_for('static', filename='script.js') }}"></script>
 
         <a href="{{ url_for('home') }}">

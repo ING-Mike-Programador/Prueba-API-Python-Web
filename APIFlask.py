@@ -9,6 +9,7 @@ lista_productos = [
         {"nombre": "Mouse", "precio": 500},
         {"nombre": "Teclado", "precio": 1200},
         {"nombre": "Mouse", "precio": 500},
+        {"nombre": "Miguel", "precio": 8000},
         {"nombre": "Teclado", "precio": 1200}
     ]
 # Página principal

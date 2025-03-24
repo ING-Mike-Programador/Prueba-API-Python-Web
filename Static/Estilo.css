@@ -11,8 +11,8 @@
     --letraParrafo: 20px;
     --letraInput: 15px;
     --alturaGrid: 500px;
-    --columnas: repeat(5, 1fr);
-    --filas: repeat(5, 1fr);
+    --columnas: repeat(2, 1fr);
+    --filas: repeat(5,1fr);
 }
 
 body {
@@ -56,3 +56,58 @@ p {
     padding-left: 1%;
     margin: 2px;
 }
+.EncabezadoProductos{
+    grid-area: 2/2/2/2;
+    
+}
+.EncabezadoPrecios{
+    grid-area: 2/3/2/3;
+}
+
+.grid{
+    height: var(--alturaGrid);
+    
+    display: grid;
+    grid-template: 20px 50px var(--filas) 20px/20px var(--columnas) 20px;
+    overflow: hidden;
+    justify-content: center;
+    text-align:center;
+    border-right: 3px solid #333;
+    border-bottom: 3px solid #333;
+}
+.Productos{
+    grid-area: 3/2/span 5/2;
+}
+.Precios{
+    grid-area: 3/3/span 5/3;
+}
+.grid-item{
+    position:relative;
+    padding:1rem;
+    
+}
+.grid-item::before, 
+.grid-item::after {
+   content: '';
+   position: absolute;
+   background-color: #333;
+   z-index: 1;
+}
+.grid-item::after {
+  width: 100vw;
+  height: 3px;
+  left: 0px;
+  top: -1px;
+  bottom: 100%;
+}
+.grid-item::before {
+  width: 3px;
+  height: 100%;
+  left: 0px;
+  top: 0;  
+  bottom: 100%;
+}
+.contenido2{
+    max-width:500px;
+    margin:auto;
+  }
