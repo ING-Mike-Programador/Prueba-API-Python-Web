@@ -4,7 +4,7 @@ import requests
 
 
 def create_window():
-    global window, labelInfo
+    global window, labelInfo, entry_nombre, entry_precio
     window = tk.Tk()
     window.title("Aplicación de Escritorio")
     centrar_ventana(window, 800, 600)
@@ -46,10 +46,33 @@ def create_window():
         padx=10,
         pady=1
     )
+    btn_enviar_producto = tk.Button(
+        frame,
+        text="Enviar Producto",
+        command=enviar_producto,
+        font=("Arial", 12, "bold"),
+        fg="#02130d", bg="#069767",
+        activebackground="#043d74",
+        activeforeground="white",
+        relief="ridge",
+        bd=3,
+        padx=20,
+        pady=1
+    )
     
+    label_nombre = tk.Label(frame, text="Nombre:", font=("Arial", 12), fg="#02130d", bg="#11cc8e")
+    label_nombre.pack(pady=5)
+    entry_nombre = tk.Entry(frame, font=("Arial", 12), fg="#02130d")
+    entry_nombre.pack(pady=5)
+
+    label_precio = tk.Label(frame, text="Precio:", font=("Arial", 12), fg="#02130d", bg="#11cc8e")
+    label_precio.pack(pady=5)
+    entry_precio = tk.Entry(frame, font=("Arial", 12), fg="#02130d")
+    entry_precio.pack(pady=5)
+
     btn_ver_productos.pack()
-    
     btn_borrar_productos.pack(pady=3)
+    btn_enviar_producto.pack(pady=3)
     
     texto = "Nombre: Miguel Edad 23 \n" \
     "Nombre: Itzel Edad 22 \n" \
@@ -119,6 +142,35 @@ def ver_productos():
 def mostrar_productos(productos):
     producto_info ="\n".join(f"{p['nombre']} - ${p['precio']}" for p in productos)
     labelInfo.config(text=producto_info, bd=4)
+
+def enviar_producto():
+    nombre = entry_nombre.get()
+    precio = entry_precio.get()
+
+    if nombre and precio:
+        try:
+            data = {
+                "AGG": {
+                    "producto": [
+                        {"nombre": nombre, "precio": precio}
+                    ]
+                }
+            }
+
+            headers = {"Content-Type": "application/json"}
+            response = requests.post("http://127.0.0.1:5000/productos", json=data, headers=headers)
+
+            if response.status_code == 200:
+                messagebox.showinfo("Agregado", "Se agrego exitosamente el producto");
+                ver_productos();
+            else:
+                labelInfo.config(text="Error al agregar producto", bd=4)
+        except:
+            messagebox.showerror("Error", "No se pudo conectar con el servidor")
+            labelInfo.config(text="Error al agregar producto", bd=0)
+    else:
+        messagebox.showerror("Error", "Por favor, ingrese un nombre y precio válidos.")
+
 
 def centrar_ventana(ventana, ancho, alto):
     pantalla_ancho = ventana.winfo_screenwidth()
